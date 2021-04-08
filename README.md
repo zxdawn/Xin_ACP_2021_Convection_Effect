@@ -1,5 +1,9 @@
 # GRL_2021
 
+## /namelists
+
+Namelists used in the WRF-Chem simulation.
+
 ## /notebooks
 
 Python jupyter notebooks of plotting my paper's figures.
