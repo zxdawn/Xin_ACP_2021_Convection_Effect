@@ -1,5 +1,3 @@
-! LDA: 90 minutes offset
-! LFR: 60 minutes offset
  &time_control
  force_use_old_data                  = .true.,
  run_days                            = 0,

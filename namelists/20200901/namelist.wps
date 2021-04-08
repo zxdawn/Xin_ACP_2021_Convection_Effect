@@ -1,0 +1,38 @@
+&share
+ wrf_core                           = 'ARW',
+ max_dom                            = 4,
+ start_date                         = '2020-08-31_18:00:00', '2020-08-31_18:00:00', '2020-08-31_18:00:00', '2020-08-31_18:00:00',
+ end_date                           = '2020-09-01_12:00:00', '2020-09-01_12:00:00', '2020-09-01_12:00:00', '2020-09-01_12:00:00',
+ interval_seconds                   = 3600,
+ io_form_geogrid                    = 2,
+ /
+
+&geogrid
+ parent_id                          = 1,      1,      2,    3,
+ parent_grid_ratio                  = 1,      3,      3,    3,
+ i_parent_start                     = 1,      40,     50,   50,
+ j_parent_start                     = 1,      35,     45,   40,
+ e_we                               = 120,    151,    181,  271,
+ e_sn                               = 120,    151,    181,  271,
+ dx                                 = 27000,
+ dy                                 = 27000,
+ map_proj                           = 'lambert',
+ ref_lat                            = 32,
+ ref_lon                            = 117.5,
+ truelat1                           = 30.0,
+ truelat2                           = 60.0,
+ stand_lon                          = 120.0,
+ geog_data_path                     = '/WORK/app/WRF/geog/',
+ geog_data_res                      = 'default',   'default',  'default', 'default',
+ /
+
+&ungrib
+ out_format                         = 'WPS',
+ prefix                             = 'FILE',
+ /
+
+&metgrid
+ fg_name                            = 'FILE', 'PRES'
+ io_form_metgrid                    = 2,
+ /
+

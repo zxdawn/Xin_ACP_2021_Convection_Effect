@@ -1,0 +1,38 @@
+&share
+ wrf_core                           = 'ARW',
+ max_dom                            = 3,
+ start_date                         = '2019-07-25_00:00:00','2019-07-25_00:00:00','2019-07-25_00:00:00'
+ end_date                           = '2019-07-25_12:00:00','2019-07-25_12:00:00','2019-07-25_12:00:00'
+ interval_seconds                   = 3600,
+ io_form_geogrid                    = 2,
+ /
+
+&geogrid
+ parent_id                          = 1,      1,      2,
+ parent_grid_ratio                  = 1,      5,      5,
+ i_parent_start                     = 1,      35,     40,
+ j_parent_start                     = 1,      35,     50,
+ e_we                               = 100,    151,    331,
+ e_sn                               = 100,    151,    331,
+ dx                                 = 15000,
+ dy                                 = 15000,
+ map_proj                           = 'lambert',
+ ref_lat                            = 32,
+ ref_lon                            = 119,
+ truelat1                           = 30,
+ truelat2                           = 60,
+ stand_lon                          = 119,
+ geog_data_path                     = '/WORK/app/WRF/geog/',
+ geog_data_res                      = 'default',   'default',  'default',
+ /
+
+&ungrib
+ out_format                         = 'WPS',
+ prefix                             = 'FILE',
+ /
+
+&metgrid
+ fg_name                            = 'FILE', 'PRES'
+ io_form_metgrid                    = 2,
+ /
+
