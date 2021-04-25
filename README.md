@@ -20,7 +20,7 @@ Python jupyter notebooks of plotting my paper's figures.
 
   (c) - (d) ozone_profile_tendency_2020.ipynb
 
-- Fig 03. [(e) - (f)], Fig 04. (e) - (f), and Fig S07.
+- Fig 03. [(e) - (f)], Fig 04., and Fig S07.
 
   s5p_wrfchem_2019.ipynb and s5p_wrfchem_2020.ipynb
 
