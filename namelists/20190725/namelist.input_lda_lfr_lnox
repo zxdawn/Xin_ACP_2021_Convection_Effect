@@ -154,8 +154,8 @@
  chem_conv_tr                       = 1,      0,     0,
  conv_tr_aqchem                     = 1,      0,     0,
  lnox_opt                           = 1,      1,     1,
- n_ic                               = 330,    330,   330,
- n_cg                               = 330,    330,   330,
+ n_ic                               = 500,    500,   500,
+ n_cg                               = 500,    500,   500,
  irr_opt                            = 0,      0,     1,
  chemdiag                           = 0,      0,     1,
  /
