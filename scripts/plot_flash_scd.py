@@ -14,13 +14,13 @@ from xin_cartopy import load_province
 
 # set data
 s5p_dir = '../data/tropomi/'
-flash_dir = '../data/lightning/'
+flash_dir = '../data/lightning/subset/'
 
 f_s5p_1 = s5p_dir + 'S5P_TEST_L2__NO2____20190725*'
 f_s5p_2 = s5p_dir + 'S5P_TEST_L2__NO2____20200901*'
 
-f_ltng_1 = flash_dir + 'ENGLN_20190725.csv'
-f_ltng_2 = flash_dir + 'ENGLN_20200901.csv'
+f_ltng_1 = flash_dir + 'LtgFlashPortions20190725.csv'
+f_ltng_2 = flash_dir + 'LtgFlashPortions20200901.csv'
 
 # set tropomi passing time (output from plot_ir_swath_traj.py)
 pass_t1 = pd.to_datetime('2019-07-25 05:20')
@@ -197,7 +197,7 @@ plot_data(lon_bnd, lat_bnd, scd, crf, cp, ltng, axs[1], axs[3], clb=True)
 
 axs.format(
 #            abc=True,
-#            abcloc='ul',
+#            abcloc='l',
 #            abcstyle='(a)',
            lonlabels=True,
            latlabels=True,
