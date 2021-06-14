@@ -1,4 +1,6 @@
-# GRL_2021
+# Xin_GRL_2021_Convection_Effect
+
+This repository provides the scripts and some of the data used in the 'Influence of convection on the upper tropospheric O3 and NOx budget in southeastern China' paper submitted to AGU's GRL journal.
 
 ## /namelists
 
@@ -70,3 +72,6 @@ Some scripts used to subset original data and generate analysis data
 
 ## /data
 
+Input data are all saved in the zenodo Dataset called [Xin_GRL_2021_Convection_Effect_data](https://doi.org/10.5281/zenodo.4671616).
+
+Users can download the compressed file, extract it in the root directory, and rename to `data`. Then, all the Jupyter Notebooks should work well.
