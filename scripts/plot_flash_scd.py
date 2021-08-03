@@ -29,8 +29,9 @@ begin_t = -180  # minutes before the TROPOMI passes
 end_t = 0  # minutes after the TROPOMI passes
 
 # set plot region
-extend = [118, 119.6, 31.2, 32.8]
-lon_d = 0.5; lat_d = 0.5 
+extend_2019 = [118, 119.6, 31.2, 32.8]
+extend_2020 = [118, 120, 30.49, 32.51]
+lon_d = 0.5; lat_d = 0.5
 
 save_format = '.png'
 
@@ -129,7 +130,7 @@ def plot_data(lon_bnd, lat_bnd,
         shrink = 1 #0.8
         ax1.colorbar(m2, loc='r',
                      ticks=plot.arange(100, 1100, 200),
-                     label='Cloud Top Pressure (' + cp.attrs['units'] + ')',
+                     label='Cloud Optical Pressure (' + cp.attrs['units'] + ')',
                      shrink=shrink)
         ax1.colorbar(m1, loc='r',
                      ticks=plot.arange(0, 2, 0.25),
@@ -195,19 +196,27 @@ plot_data(lon_bnd, lat_bnd, scd, crf, cp, ltng, axs[1], axs[3], clb=True)
 # axs[:, 0].format(latlabels=True)
 # axs[1, :].format(lonlabels=True)
 
+axs[:, 0].format(lonlim=(extend_2019[0], extend_2019[1]),
+                 latlim=(extend_2019[2], extend_2019[3]),)
+
+axs[:, 1].format(lonlim=(extend_2020[0], extend_2020[1]),
+                 latlim=(extend_2020[2], extend_2020[3]),)
+
 axs.format(
-#            abc=True,
-#            abcloc='l',
-#            abcstyle='(a)',
+           abc=True,
+           abcloc='l',
+           abcstyle='(a)',
            lonlabels=True,
            latlabels=True,
-           collabels=[pass_t1.strftime('%Y-%m-%d %H:%M (UTC)'),
+           toplabels=[pass_t1.strftime('%Y-%m-%d %H:%M (UTC)'),
                       pass_t2.strftime('%Y-%m-%d %H:%M (UTC)')],
+           toplabelsize=12,
+           toplabelpad=-12,
            dms=False,
            lonlines=lon_d,
            latlines=lat_d,
-           lonlim=(extend[0], extend[1]),
-           latlim=(extend[2], extend[3]),
+           #lonlim=(extend[0], extend[1]),
+           #latlim=(extend[2], extend[3]),
            gridlinewidth=0.5,
            gridcolor='gray6',
            gridlabelcolor='k',
