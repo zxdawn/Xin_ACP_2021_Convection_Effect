@@ -1,6 +1,6 @@
-# Xin_ERL_2021_Convection_Effect
+# Xin_ACP_2021_Convection_Effect
 
-This repository provides the scripts and some of the data used in the 'Influence of convection on the upper tropospheric O3 and NOx budget in southeastern China' paper submitted to ERL journal.
+This repository provides the scripts and some of the data used in the 'Influence of convection on the upper tropospheric O3 and NOx budget in southeastern China' paper submitted to ACP journal.
 
 ## /namelists
 
@@ -16,13 +16,13 @@ Python jupyter notebooks of plotting my paper's figures.
 
   (c) - (d) ozonesondes.ipynb 
 
-- Fig 02., and Table S01.
+- Fig 04., and Table 01.
 
-  (a) - (b) ozone_profile_tendency_2019.ipynb
+  (a) - (c) ozone_profile_tendency_2019.ipynb
 
-  (c) - (d) ozone_profile_tendency_2020.ipynb
+  (d) - (f) ozone_profile_tendency_2020.ipynb
 
-- Fig 03. [(e) - (f)], Fig 04., and Fig S07.
+- Fig 05. [(e) - (f)], Fig 06., and Fig S05.
 
   s5p_wrfchem_2019.ipynb and s5p_wrfchem_2020.ipynb
 
@@ -32,7 +32,7 @@ Python jupyter notebooks of plotting my paper's figures.
 
   waccm_profiles.ipynb
 
-- Fig S03. to S06.
+- Fig S03. and S04.
 
   comp_wrf_radar.ipynb
 
@@ -44,7 +44,7 @@ Python jupyter notebooks of plotting my paper's figures.
 
   plot_domain.py
 
-- Fig 03. (a) - (d)
+- Fig 05. (a) - (d)
 
   plot_flash_scd.py
 
@@ -72,6 +72,6 @@ Some scripts used to subset original data and generate analysis data
 
 ## /data
 
-Input data are all saved in the zenodo Dataset called [Xin_ERL_2021_Convection_Effect_data](https://doi.org/10.5281/zenodo.4671616).
+Input data are all saved in the zenodo Dataset called [Xin_ACP_2021_Convection_Effect_data](https://doi.org/10.5281/zenodo.5154798).
 
 Users can download the compressed file, extract it in the root directory, and rename to `data`. Then, all the Jupyter Notebooks should work well.
