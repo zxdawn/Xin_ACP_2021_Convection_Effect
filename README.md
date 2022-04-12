@@ -1,6 +1,6 @@
 # Xin_ACP_2021_Convection_Effect
 
-This repository provides the scripts and some of the data used in the 'Influence of convection on the upper tropospheric O3 and NOx budget in southeastern China' paper submitted to ACP journal.
+This repository provides the scripts and some of the data used in the '[Influence of convection on the upper tropospheric O3 and NOx budget in southeastern China](https://doi.org/10.5194/acp-2021-650)' paper.
 
 ## /namelists
 
@@ -16,15 +16,27 @@ Python jupyter notebooks of plotting my paper's figures.
 
   (c) - (d) ozonesondes.ipynb 
 
+- Fig 02. and Fig. 03.
+
+  comp_wrf_radar.ipynb
+
 - Fig 04., and Table 01.
 
   (a) - (c) ozone_profile_tendency_2019.ipynb
 
   (d) - (f) ozone_profile_tendency_2020.ipynb
 
-- Fig 05. [(e) - (f)], Fig 06., and Fig S05.
+- Fig 05.
+
+  irr_timeseries.ipynb
+
+- Fig 07., and Fig S05.
 
   s5p_wrfchem_2019.ipynb and s5p_wrfchem_2020.ipynb
+
+- Fig 08.
+
+  cp_crf.ipynb
 
   
 
@@ -44,9 +56,13 @@ Python jupyter notebooks of plotting my paper's figures.
 
   plot_domain.py
 
-- Fig 05. (a) - (d)
+- Fig 06.
 
   plot_flash_scd.py
+
+- Fig S06
+
+  plot_nox_profile.py
 
 ### Processing
 
