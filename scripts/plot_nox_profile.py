@@ -71,11 +71,11 @@ def mask_data(mask, ds_tm5, ds_nolnox, ds_500lnox, ds_700lnox):
 def plot_no2_profile(ax, pressure, cld_pressure, no2_tm5, no2_nolnox, no2_500lnox, no2_700lnox):
     '''Plot the NO2 profiles with different LNOx settings'''
     l1 = ax.plot(no2_tm5*1e12, pressure, label='TM5', c='gray7')
-    l2 = ax.plot(no2_nolnox*1e12, pressure, label='No LNO$_x$', c='blue7')
-    l3 = ax.plot(no2_500lnox*1e12, pressure, label='500 mol/flash', c='green7')
+    l2 = ax.plot(no2_nolnox*1e12, pressure, label='No LNO$_x$', c='violet7')
+    l3 = ax.plot(no2_500lnox*1e12, pressure, label='500 mol/flash', c='blue7')
     l4 = ax.plot(no2_700lnox*1e12, pressure, label='700 mol/flash', c='red7')
 
-    l5 = ax.axhline(cld_pressure, label='Cloud Optical Pressure', lw=2, ls='--', color='blue7')
+    l5 = ax.axhline(cld_pressure, label='Cloud Optical Pressure', lw=2, ls='--', color='gray7')
     ax.format(xlim=(10, 1e4), ylim=(1000, 100), ylabel='Pressure (hPa)', xlabel='NO$_2$ (pptv)')
 
     return [l1, l2, l3, l4, l5]
@@ -85,12 +85,12 @@ def plot_lnox_profile(ax, pressure, cld_pressure,
                       no2_nolnox, no2_500lnox, no2_700lnox,
                       no_nolnox, no_500lnox, no_700lnox):
     '''Plot difference of LNOx profiles'''
-    l1 = ax.plot((no2_500lnox-no2_nolnox)*1e12, pressure, label='LNO$_2$ (500 mol/flash)', c='green7')
+    l1 = ax.plot((no2_500lnox-no2_nolnox)*1e12, pressure, label='LNO$_2$ (500 mol/flash)', c='blue7')
     l2 = ax.plot((no2_700lnox-no2_nolnox)*1e12, pressure, label='LNO$_2$ (700 mol/flash)', c='red7')
-    l3 = ax.plot((no2_500lnox-no2_nolnox+no_500lnox-no_nolnox)*1e12, pressure, label='LNO$_x$ (500 mol/flash)', c='green7', ls='--')
+    l3 = ax.plot((no2_500lnox-no2_nolnox+no_500lnox-no_nolnox)*1e12, pressure, label='LNO$_x$ (500 mol/flash)', c='blue7', ls='--')
     l4 = ax.plot((no2_700lnox-no2_nolnox+no_700lnox-no_nolnox)*1e12, pressure, label='LNO$_x$ (700 mol/flash)', c='red7', ls='--')
 
-    l5 = ax.axhline(cld_pressure, label='Cloud Optical Pressure', lw=2, ls='--', color='blue7')
+    l5 = ax.axhline(cld_pressure, label='Cloud Optical Pressure', lw=2, ls='--', color='gray7')
     ax.format(xlim=(10, 8000), ylim=(1000, 100), ylabel='Pressure (hPa)', xlabel='(pptv)')
 
     return [l1, l2, l3, l4, l5]
@@ -180,8 +180,7 @@ axs_dual = axs.dualy('height', label='', ticks=2.5)
 for ax in[axs_dual[2], axs_dual[5]]:
     ax.format(ylabel='Height (km)')
 
-axs.format(xscale='log')
-axs.format(grid=False, toplabels=('Fresh Lightning', 'Downwind of Fresh Lightning', 'Aged Lightning'))
+axs.format(abc='(a)', xscale='log', grid=False, toplabels=('Fresh Lightning', 'Downwind of Fresh Lightning', 'Aged Lightning'))
 
 savename = '../figures/nox_profile.pdf'
 print(f'Saved to {savename}')

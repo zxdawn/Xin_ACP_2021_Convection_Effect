@@ -29,7 +29,8 @@ begin_t = -180  # minutes before the TROPOMI passes
 end_t = 0  # minutes after the TROPOMI passes
 
 # set plot region
-extend_2019 = [118, 119.6, 31.2, 32.8]
+#extend_2019 = [118, 119.6, 31.2, 32.8]
+extend_2019 = [118, 120, 30.49, 32.51]
 extend_2020 = [118, 120, 30.49, 32.51]
 lon_d = 0.5; lat_d = 0.5
 
@@ -69,7 +70,6 @@ def plot_data(lon_bnd, lat_bnd,
     # plot scd
     cmap = plot.Colormap('YlGnBu_r', 'YlOrRd',
                          ratios=(1, 1))
-    
 
     m1 = ax1.pcolormesh(lon_bnd, lat_bnd, scd,
                         levels=256,
@@ -104,7 +104,8 @@ def plot_data(lon_bnd, lat_bnd,
     crf_bounds = np.array([0, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 0.97, 0.98, 0.99, 1.0])
     norm = matplotlib.colors.BoundaryNorm(boundaries=crf_bounds, ncolors=256)
     cmap_kw = {'left': 0.1}
-    m3 = ax2.pcolormesh(lon_bnd, lat_bnd, crf, cmap='Ice_r', norm=norm, cmap_kw=cmap_kw)
+    #m3 = ax2.pcolormesh(lon_bnd, lat_bnd, crf, cmap='Ice_r', norm=norm, cmap_kw=cmap_kw)
+    m3 = ax2.pcolormesh(lon_bnd, lat_bnd, crf, cmap='Greys', edgecolor='k', lw=0.1, norm=norm, cmap_kw=cmap_kw)
 #     m3 = ax2.pcolormesh(lon_bnd, lat_bnd, crf, cmap=cmap, norm=norm, cmap_kw=cmap_kw)
 
     ltng_bounds = np.concatenate([np.linspace(begin_t, -30, 6), np.linspace(-20, -0, 3)])
@@ -113,16 +114,18 @@ def plot_data(lon_bnd, lat_bnd,
 
     m4 = ax2.scatter(ltng['longitude'], ltng['latitude'],
                      c=ltng['delta'],
-#                      cmap='plasma',
-                     cmap='RdYlGn',
-#                      cmap_kw={'shift': 180},
-                     cmap_kw={'left':0.1, 'cut': 0.3, 'shift': 180},
+                     marker="$\u25EF$",
+                     #cmap='RdYlGn',
+                     #cmap='roma',
+                     cmap='ColdHot',
+                     cmap_kw={'left':0.1, 'cut': 0.3, 'right':0.9},
+                     #cmap_kw={'left':0.1, 'cut': 0.3, 'shift': 180},
 #                      cmap='oranges_r',
 #                      cmap='plasma',
 #                      cmap_kw={'left': 0.3},
                      norm=norm,
 #                      levels=len(ltng_bounds),
-                     s=1)
+                     s=5)
     
     m4.set_facecolor("none")
 
@@ -137,9 +140,10 @@ def plot_data(lon_bnd, lat_bnd,
                      label='SCD$_{tropNO_2}$ (' + scd.attrs['units'] + ')',
                      shrink=shrink)
         ax2.colorbar(m3, loc='r', ticks=crf_bounds,
-                     label='f$_{effNO_2}$',
+                     label='Cloud Radiance Fraction',
                      shrink=shrink,
-                     spacing="proportional")
+                     #spacing="proportional"
+                    )
         ax2.colorbar(m4, loc='r',
                      ticks=ltng_bounds,
 #                      ticks=plot.arange(begin_t, end_t, 30),
@@ -164,7 +168,8 @@ ltng = ltng[subset]
 
 f, axs = plot.subplots(proj='pcarree', nrows=2, ncols=2)
 provinces = load_province()
-axs.add_feature(provinces, edgecolor='k', linewidth=.3)
+for ax in axs:
+    ax.add_feature(provinces, edgecolor='k', linewidth=.3)
 
 plot_data(lon_bnd, lat_bnd, scd, crf, cp, ltng, axs[0], axs[2])
 
@@ -202,10 +207,8 @@ axs[:, 0].format(lonlim=(extend_2019[0], extend_2019[1]),
 axs[:, 1].format(lonlim=(extend_2020[0], extend_2020[1]),
                  latlim=(extend_2020[2], extend_2020[3]),)
 
-axs.format(
-           abc=True,
-           abcloc='l',
-           abcstyle='(a)',
+axs.format(abcloc='l',
+           abc='(a)',
            lonlabels=True,
            latlabels=True,
            toplabels=[pass_t1.strftime('%Y-%m-%d %H:%M (UTC)'),
@@ -224,4 +227,4 @@ axs.format(
            #ticklen=5
            )
 
-f.savefig(f'../figures/crf_ltng{save_format}')
+f.savefig(f'../figures/flash_scd{save_format}')
